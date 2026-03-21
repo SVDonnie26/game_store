@@ -455,7 +455,6 @@ begin
     insert into clients(name_, address, phone, birthday)
     values (p_name, p_address, p_phone, p_birthday);
 end$$
--- strocture procedues----------
 create procedure sp_insert_supplier(
     in p_name varchar(255),
     in p_address varchar(255),
@@ -466,10 +465,29 @@ begin
     insert into suppliers(name_, address, phone, email)
     values (p_name, p_address, p_phone, p_email);
 end$$
+
+create procedure sp_insert_branch(
+    in p_name varchar(255),
+    in p_address varchar(255),
+    in p_phone varchar(255),
+    in p_email varchar(255)
+)
+begin
+    insert into branches(name_, address, phone, email)
+    values (p_name, p_address, p_phone, p_email);
+end$$
 --  pendientes  -- 
 
--- branches
 -- departments
+create procedure sp_insert_department(
+    in p_des varchar(255),
+    in p_branch_id int
+)
+begin
+    insert into departments(des, branch_id)
+    values (p_des, p_branch_id);
+end$$
+
 -- roles
 -- employees
 -- consoles
