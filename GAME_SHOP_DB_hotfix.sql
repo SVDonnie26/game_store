@@ -82,7 +82,7 @@ create table products(
     product_type enum('game','console','accessory') not null,
     name_ varchar(255),
     des varchar(255),
-    price float not null,
+    price decimal(10,2) not null,
     console_id int,
     game_id int,
     foreign key (console_id) references consoles(console_id),
@@ -106,7 +106,7 @@ create table sales_order(
     client_id int,
     paymethod_id int,
     date_ date,
-    total float,
+    total decimal(10,2),
     foreign key (employee_id) references employees(employee_id),
     foreign key (client_id) references clients(client_id),
     foreign key (paymethod_id) references paymethods(paymethod_id)
@@ -117,7 +117,7 @@ create table order_details(
     sale_id int,
     product_id int,
     quantity int not null default 1,
-    unit_price float,
+    unit_price decimal(10,2),
     foreign key (sale_id) references sales_order(sale_id),
     foreign key (product_id) references products(product_id)
 );
